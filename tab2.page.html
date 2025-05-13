@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Contas a Pagar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+
+  <ion-list>
+    <ion-item *ngFor="let conta of contas">
+      <ion-label>
+        <h2 [style.textDecoration]="conta.paga ? 'line-through' : 'none'">
+          {{ conta.tipoDespesa }} - {{ conta.fornecedor }}
+        </h2>
+        <p>Empresa: {{ conta.empresaId }}</p>
+        <p>R$ {{ conta.valor }} - Vence em: {{ conta.vencimento }}</p>
+      </ion-label>
+      <ion-button color="success" size="small" (click)="marcarComoPaga(conta.id)">
+        {{ conta.paga ? 'Desfazer' : 'Pagar' }}
+      </ion-button>
+      <ion-button color="danger" size="small" (click)="removerConta(conta.id)">Excluir</ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Nova Conta</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-input placeholder="ID da Empresa" type="number" [(ngModel)]="novaConta.empresaId"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Tipo de Despesa" [(ngModel)]="novaConta.tipoDespesa"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Fornecedor" [(ngModel)]="novaConta.fornecedor"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Valor" type="number" [(ngModel)]="novaConta.valor"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-datetime placeholder="Data de Vencimento" [(ngModel)]="novaConta.vencimento"></ion-datetime>
+      </ion-item>
+      <ion-button expand="full" (click)="adicionarConta()">Salvar Conta</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+

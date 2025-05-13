@@ -1,0 +1,28 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="dark">
+    <ion-title class="title">Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="background-overlay"></div>
+  
+  <ion-card class="login-card">
+    <ion-card-header>
+      <ion-card-title>Faça login</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item class="input-item">
+        <ion-label position="stacked">Email</ion-label>
+        <ion-input placeholder="Insira o email" type="email"></ion-input>
+      </ion-item>
+      <ion-item class="input-item">
+        <ion-label position="stacked">Senha</ion-label>
+        <ion-input placeholder="Insira a senha" type="password"></ion-input>
+      </ion-item>
+      <ion-button expand="block" href="http://localhost:8100/tabs/tab2" class="login-button">Entrar</ion-button>
+      <ion-button expand="block" href="http://localhost:8100/tabs/tab1" class="login-button">Cadastrar</ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
